@@ -1,0 +1,13 @@
+web:
+  build: .
+  links:
+    - mariadb:db
+  volumes:
+    - ./media/:/var/www/media
+  env_file: .env
+
+mariadb:
+  image: bitnami/mariadb
+  volumes:
+    - ./data/:/bitnami/mariadb/data
+  env_file: .env
